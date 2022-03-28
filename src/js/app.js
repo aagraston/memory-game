@@ -1,16 +1,8 @@
 import React, { Component } from 'react'
+import Overview from '../components/Overview'
 
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {}
-  }
-
-  render() {
-    const { stateObjects } = this.state
-
-    return <div>hey peoples</div>
-  }
+function App() {
+  return <Overview />
 }
 
 export default App
