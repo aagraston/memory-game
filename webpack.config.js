@@ -14,7 +14,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'boiler-plate-3.0',
       template: './src/html/index.html',
-      filename: './html/index.html',
+      filename: './index.html',
       inject: true,
     }),
   ],
@@ -47,5 +47,16 @@ module.exports = {
         },
       },
     ],
+  },
+  devServer: {
+    host: 'localhost',
+    port: 3000,
+    hot: true,
+    static: [
+      { directory: path.join(__dirname, 'dist/js') },
+      { directory: path.join(__dirname, 'dist/html') },
+    ],
+    historyApiFallback: true,
+    open: true,
   },
 }
