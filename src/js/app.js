@@ -1,8 +1,16 @@
 import React, { Component } from 'react'
-import Overview from '../components/Overview'
+import Header from '../components/Header'
+import Score from '../components/Score'
+import Board from '../components/Board'
 
 function App() {
-  return <Overview />
+  return (
+    <div className="app">
+      <Header />
+      <Score />
+      <Board />
+    </div>
+  )
 }
 
 export default App
