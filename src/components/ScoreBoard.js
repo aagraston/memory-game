@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Score() {
+function ScoreBoard() {
   const curScore = 0
   const bestScore = 0
 
@@ -12,4 +12,4 @@ function Score() {
   )
 }
 
-export default Score
+export default ScoreBoard
