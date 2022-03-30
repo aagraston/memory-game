@@ -21,10 +21,6 @@ function Board() {
   //array of card data objects
   const [cardsData, setCardsData] = useState([])
 
-  useEffect(() => {
-    setUpImages()
-  }, [])
-
   const setUpImages = () => {
     const tmpArray = []
     imgArray.forEach((image, index) => {
@@ -40,6 +36,10 @@ function Board() {
     setCardsData(tmpArray)
   }
 
+  useEffect(() => {
+    setUpImages()
+  }, [])
+
   //set to original index
 
   console.log(cardsData)
@@ -53,6 +53,22 @@ function Board() {
   const toggleClicked = (withInd) => {
     //toggle the card that was clicked
   }
+
+  const shuffleCards = (arrayToShuffle) => {
+    const tmpArray = arrayToShuffle
+    console.log(tmpArray)
+    for (let i = cardsData.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      const temp = tmpArray[i]
+      tmpArray[i] = tmpArray[j]
+      tmpArray[j] = temp
+    }
+    return tmpArray
+  }
+
+  //learning that
+  shuffleCards(cardsData)
+
   //create card objects
 
   //board has an array of tiles that are created & shuffled here
