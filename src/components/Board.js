@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import uniqid from 'uniqid'
 import Card from './Card'
 
+//import images
 import img01 from '../assets/imgs/img-01.png'
 import img02 from '../assets/imgs/img-02.png'
 import img03 from '../assets/imgs/img-03.png'
@@ -11,8 +12,9 @@ import img06 from '../assets/imgs/img-06.png'
 import img07 from '../assets/imgs/img-07.png'
 import img08 from '../assets/imgs/img-08.png'
 
-function Board() {
-  //import images
+function Board(props) {
+  //deconstruct props
+  const { attainPoint, resetScore } = props
 
   //store images in an array:
 
@@ -49,11 +51,19 @@ function Board() {
 
   //function passed to card to be triggered on click:
   const clickedCard = (withInd) => {
-    console.log(withInd)
-  }
+    let searchResult = guesses.find((obj) => {
+      return obj.id === withInd.id
+    })
 
-  const toggleClicked = (withInd) => {
-    //toggle the card that was clicked
+    if (searchResult === undefined) {
+      guesses.concat(withInd)
+      attainPoint()
+      shuffleCards(cardsData)
+    } else {
+      guesses = []
+      resetScore()
+      shuffleCards(cardsData)
+    }
   }
 
   const shuffleCards = (arrayToShuffle) => {
@@ -67,8 +77,6 @@ function Board() {
     }
     return tmpArray
   }
-
-  shuffleCards(cardsData)
 
   //create card objects
 

@@ -28,7 +28,7 @@ function App() {
       <ScoreBoard score={score} highScore={highScore} />
       <div className="app-main-section">
         <Instructions />
-        <Board />
+        <Board attainPoint={attainPoint} resetScore={resetScore} />
       </div>
     </div>
   )

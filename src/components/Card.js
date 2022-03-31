@@ -6,7 +6,7 @@ function Card(props) {
 
   return (
     <div className="card-container">
-      <img src={card.image} onClick={clickedCard.bind(this, card.id)} />
+      <img src={card.image} onClick={clickedCard.bind(this, card)} />
     </div>
   )
 }
