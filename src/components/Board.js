@@ -18,6 +18,9 @@ function Board() {
 
   const imgArray = [img01, img02, img03, img04, img05, img06, img07, img08]
 
+  //an array of already clicked setUpImages
+  const guesses = []
+
   //array of card data objects
   const [cardsData, setCardsData] = useState([])
 
@@ -46,8 +49,7 @@ function Board() {
 
   //function passed to card to be triggered on click:
   const clickedCard = (withInd) => {
-    //if card has been clicked trigger score reset
-    //trigger reset of clicked value
+    console.log(withInd)
   }
 
   const toggleClicked = (withInd) => {
@@ -66,7 +68,6 @@ function Board() {
     return tmpArray
   }
 
-  //learning that
   shuffleCards(cardsData)
 
   //create card objects
@@ -76,7 +77,7 @@ function Board() {
   return (
     <div className="board-container">
       {cardsData.map((card) => (
-        <Card key={uniqid()} card={card} />
+        <Card key={uniqid()} card={card} clickedCard={clickedCard} />
       ))}
     </div>
   )
