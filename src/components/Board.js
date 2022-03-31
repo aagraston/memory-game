@@ -21,7 +21,7 @@ function Board(props) {
   const imgArray = [img01, img02, img03, img04, img05, img06, img07, img08]
 
   //an array of already clicked setUpImages
-  const guesses = []
+  const [guesses, setGuesses] = useState([])
 
   //array of card data objects
   const [cardsData, setCardsData] = useState([])
@@ -56,11 +56,11 @@ function Board(props) {
     })
 
     if (searchResult === undefined) {
-      guesses.concat(withInd)
+      setGuesses([...guesses, withInd])
       attainPoint()
       shuffleCards(cardsData)
     } else {
-      guesses = []
+      setGuesses([])
       resetScore()
       shuffleCards(cardsData)
     }
